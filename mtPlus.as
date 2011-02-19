@@ -12,6 +12,7 @@
 	
 	import flash.events.*;
 	import flash.net.URLLoader;
+
 	import flash.utils.Timer;
 	import flash.system.Security;
 	
@@ -151,9 +152,19 @@
 				//dispatch the event, so, dispatch it manually
 				if(!cam.muted) cam.dispatchEvent(new Event(StatusEvent.STATUS));
 			}
+			
+			//messy, but the only way to make path work for both online and local filesystem
+			var urlString:String = "";
+			var pathArray = loaderInfo.loaderURL.split("/");
+			for(var pathPart:int = 0;pathPart < pathArray.length - 1;pathPart++)
+			{
+				urlString += pathArray[pathPart] + "/";
+			}
+			//trace(urlString);
+			
 			//weak var, onLoaded will set the xml to the global var
-			var coco = new flash.net.URLLoader();
-			coco.load(new flash.net.URLRequest("mtConfig.xml"));
+			var coco = new URLLoader();
+			coco.load(new flash.net.URLRequest(urlString+"mtConfig.xml"));
 			coco.addEventListener(Event.COMPLETE,onConfigLoaded);
 		}
 		
