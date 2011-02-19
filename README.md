@@ -18,9 +18,9 @@ Can increase performance (I think)
 Flashplayer sacrifices camera fps when dealing with iterations. When camera fps drops, the whole detection
 process falls to a laggy response. Hopefully someone will find a cure for this :)
 ###External classes needed:
-Keith Peter's [Minimal Comps](http://www.minimalcomps.com/)
+[Keith Peter's Minimal Comps](http://www.minimalcomps.com/)
 
-[TweenMax Tweening Library](http://www.greensock.com/tweenmax/)
+[Greensock's TweenMax Tweening Library](http://www.greensock.com/tweenmax/)
 
 [Grant Skinner's](http://gskinner.com/blog) ColorMatrix (included in this repo)
 
