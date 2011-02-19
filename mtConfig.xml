@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<productionState>0</productionState>
+	<horizontalCameraInvert>1</horizontalCameraInvert>
+	<initialSequence>1</initialSequence>
+	<motionTrackerInterval>80</motionTrackerInterval>
+	<motionTrackerScaleIndex>0.25</motionTrackerScaleIndex>
+	<multiPointDetection>1</multiPointDetection>
+	<floatingItems>30</floatingItems>
+	<avoiderSettings>
+		<MAAI>1200</MAAI>
+		<MAI>70</MAI>
+	</avoiderSettings>
+
+	<imageConfig>
+		<brightness>10</brightness>
+		<contrast>50</contrast>
+		<blur>7</blur>
+		<minArea>10</minArea>
+	</imageConfig>
+
+</config>
