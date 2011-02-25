@@ -16,14 +16,18 @@ be when soulwire released it. I guess I adjust it to my needs at the time and, I
 about it.
 ## Features
   * Freeze background
+
 Compare video feed against last taken frame or fixed one
+
 	motionTracker.freezeBackground = true/false;
   * Return multiple points or unique movement tracker
 	motionTracker.returnBlobs = true/false;
   * Configurable interval for detecion
 	motionTracker.interval = 70;//int,miliseconds
   * Scale tracking source
+
 Can increase performance (I think)
+
 	motionTracker.scaleIndex = 0.5;//number,input will be scaled prior to processing the image
 ## Issues
 Flashplayer sacrifices camera fps when dealing with iterations. When camera fps drops, the whole detection
