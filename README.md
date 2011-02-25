@@ -16,11 +16,14 @@ a timer would allow me/you to play around with the class without having to adjus
 movie FPS, it can be stopped and reset, resized (captured image). I always wonder if it could be simpler, as it used to
 be when soulwire released it. I guess I adjust it to my needs at the time and, I hope, you'll do the same and tell me
 about it.
+
 ## Features
+
   * Freeze background
 Compare video feed against last taken frame or fixed one
 
 	motionTracker.freezeBackground = true/false;
+
   * Return multiple points or unique movement tracker
 	motionTracker.returnBlobs = true/false;
   * Configurable interval for detecion
