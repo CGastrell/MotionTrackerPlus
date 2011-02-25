@@ -1,9 +1,11 @@
-﻿Motion Tracker Plus
-----
+﻿# Motion Tracker Plus
 
 ## Brief
+
 Based on MotionTracker class by [Justin Windle](http://blog.soulwire.co.uk), extended to return multiple points.
+
 ## Comments
+
 With some time to review now I can see a series of things that might be confusing. Some of them here:  
 
   * The main class has a lot of setters/getters, product of my inexperience with Controls. Most of them are just public
@@ -19,6 +21,7 @@ be when soulwire released it. I guess I adjust it to my needs at the time and, I
 about it.
 
 ## Features
+
 ### Freeze background  
 Compare video feed against last taken frame or fixed one
 	motionTracker.freezeBackground = true/false;
@@ -29,9 +32,11 @@ Compare video feed against last taken frame or fixed one
 ### Scale tracking source
 Can increase performance (I think)
 	motionTracker.scaleIndex = 0.5;//number,input will be scaled prior to processing the image
+
 ## Issues
 Flashplayer sacrifices camera fps when dealing with iterations. When camera fps drops, the whole detection
 process falls to a laggy response. Hopefully someone will find a cure for this :)
+
 ## External classes needed:
 [Keith Peter's Minimal Comps](http://www.minimalcomps.com/)
 
