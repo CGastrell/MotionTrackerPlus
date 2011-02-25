@@ -1,11 +1,9 @@
-# Motion Tracker Plus
+﻿Motion Tracker Plus
+----
 
 ## Brief
-
 Based on MotionTracker class by [Justin Windle](http://blog.soulwire.co.uk), extended to return multiple points.
-
 ## Comments
-
 With some time to review now I can see a series of things that might be confusing. Some of them here:
   * The main class has a lot of setters/getters, product of my inexperience with Controls. Most of them are just public
 access wrappers of MotionTrackerPlus class, so they could be called from Controls instance.
@@ -16,22 +14,17 @@ a timer would allow me/you to play around with the class without having to adjus
 movie FPS, it can be stopped and reset, resized (captured image). I always wonder if it could be simpler, as it used to
 be when soulwire released it. I guess I adjust it to my needs at the time and, I hope, you'll do the same and tell me
 about it.
-
 ## Features
-
-  * Freeze background
+### Freeze background
 Compare video feed against last taken frame or fixed one
 
 	motionTracker.freezeBackground = true/false;
-
-  * Return multiple points or unique movement tracker
+### Return multiple points or unique movement tracker
 	motionTracker.returnBlobs = true/false;
-  * Configurable interval for detecion
+### Configurable interval for detecion
 	motionTracker.interval = 70;//int,miliseconds
-  * Scale tracking source
-
+### Scale tracking source
 Can increase performance (I think)
-
 	motionTracker.scaleIndex = 0.5;//number,input will be scaled prior to processing the image
 ## Issues
 Flashplayer sacrifices camera fps when dealing with iterations. When camera fps drops, the whole detection
