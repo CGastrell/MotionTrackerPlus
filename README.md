@@ -1,8 +1,11 @@
-﻿# Motion Tracker Plus
+# Motion Tracker Plus
 
 ## Brief
+
 Based on MotionTracker class by [Justin Windle](http://blog.soulwire.co.uk), extended to return multiple points.
+
 ## Comments
+
 With some time to review now I can see a series of things that might be confusing. Some of them here:
   * The main class has a lot of setters/getters, product of my inexperience with Controls. Most of them are just public
 access wrappers of MotionTrackerPlus class, so they could be called from Controls instance.
