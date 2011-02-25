@@ -16,7 +16,10 @@ be when soulwire released it. I guess I adjust it to my needs at the time and, I
 about it.
 ## Features
   * Freeze background
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 Compare video feed against last taken frame or fixed one
 
 	motionTracker.freezeBackground = true/false;
@@ -25,7 +28,10 @@ Compare video feed against last taken frame or fixed one
   * Configurable interval for detecion
 	motionTracker.interval = 70;//int,miliseconds
   * Scale tracking source
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 Can increase performance (I think)
 
 	motionTracker.scaleIndex = 0.5;//number,input will be scaled prior to processing the image
