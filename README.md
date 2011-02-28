@@ -1,4 +1,4 @@
-﻿# Motion Tracker Plus Class #
+# Motion Tracker Plus Class #
 
 ## Brief
 
