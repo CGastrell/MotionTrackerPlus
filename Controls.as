@@ -1,4 +1,4 @@
-﻿package  
+package  
 {
 	/**/
 	import com.bit101.components.CheckBox;
