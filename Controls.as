@@ -1,4 +1,4 @@
-package  
+﻿package  
 {
 	/**/
 	import com.bit101.components.CheckBox;
@@ -28,9 +28,14 @@ package
 		private var activeControls:Boolean = false;
 		
 		private var p:Panel;
+		private var mt_ms:int = 0;
+		private var fpsLabel:Label;
+		private var msLabel:Label;
+		private var msmtLabel:Label;
 		
 		public function Controls() 
 		{
+
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
 			
@@ -51,10 +56,8 @@ package
 			p.height = 40;
 			p.alpha = 0.75;
 			
-			var lb:Label = new Label(p, 10, 5);
-			lb.name = 'fps_txt';
-			lb = new Label(p,10,20);
-			lb.name = 'ms_txt';
+			fpsLabel = new Label(p, 10, 5);
+			msLabel = new Label(p,10,20);
 			
 			//lb = new Label(this, 40, 5, 'CLICK TO SWITCH BETWEEN RENDER MODES');
 			//lb.x = 10;
@@ -62,26 +65,26 @@ package
 			
 			var ns:NumericStepper = new NumericStepper(p, 90, 2, onBlurChange);
 			ns.value = parentClass._motionTracker.blur;
-			ns.max = 25; ns.min = 0;
+			ns.maximum = 25; ns.minimum = 0;
 			ns.labelPrecision = 0;
-			lb = new Label(p,ns.x + 82,ns.y,'Blur');
+			var lb:Label = new Label(p,ns.x + 82,ns.y,'Blur');
 			//ns.width = 180;
 			
 			ns = new NumericStepper(p, 90, 20, onMinareaChange);
 			ns.value = parentClass._motionTracker.minArea;
-			ns.max = 40; ns.min = 2;
+			ns.maximum = 40; ns.minimum = 2;
 			ns.labelPrecision = 0;
 			lb = new Label(p,ns.x + 82,ns.y,'Min Area');
 			
 			ns = new NumericStepper(p, 235, 2, onContrastChange);
 			ns.value = parentClass._motionTracker.contrast;
-			ns.max = 200; ns.min = 0;
+			ns.maximum = 200; ns.minimum = 0;
 			ns.labelPrecision = 0;
 			lb = new Label(p,ns.x + 82,ns.y,'Contrast');
 			
 			ns = new NumericStepper(p, 235, 20, onBrightnessChange);
 			ns.value = parentClass._motionTracker.brightness;
-			ns.max = 51; ns.min = -50;
+			ns.maximum = 51; ns.minimum = -50;
 			ns.labelPrecision = 0;
 			lb = new Label(p,ns.x + 82,ns.y,'Bright.');
 			
@@ -114,12 +117,11 @@ package
 			
 			ns = new NumericStepper(p, 660, 2, onTimerChange);
 			ns.value = parentClass.detectionInterval;
-			ns.max = 500; ns.min = 20;
+			ns.maximum = 500; ns.minimum = 20;
 			ns.step = 10;
 			ns.labelPrecision = 0;
 			lb = new Label(p,ns.x + 82,ns.y,'DetectionTimer(ms)');
-			lb = new Label(p,660,20,'000');
-			lb.name = 'mtProcessingTime';
+			msmtLabel = new Label(p,660,20,'000');
 			
 			var sl = new HSlider(p,840,5,onMAAIChange);
 			sl.tick = 10;
@@ -140,8 +142,8 @@ package
 			ns = new NumericStepper(p,1050,2,onItemsChange);
 			ns.step = 1;
 			ns.labelPrecision = 0;
-			ns.max = 40;
-			ns.min = 0;
+			ns.maximum = 40;
+			ns.minimum = 0;
 			lb = new Label(p,ns.x + 82,ns.y,'Floating Items');
 			lb.name = "items";
 			ns.value = parentClass.maxItems;
@@ -160,17 +162,17 @@ package
 		{
 			if(!activeControls) return;
 			parentClass.maxItems = e.currentTarget.value;
-			Label(p.getChildByName('items')).text = "Floating Items: " + e.currentTarget.value;
+			//Label(p.getChildByName('items')).text = "Floating Items: " + e.currentTarget.value;
 		}
 		private function onMAAIChange(e:Event):void
 		{
 			parentClass.retraction = e.currentTarget.value;
-			Label(p.getChildByName('maai')).text = "Flee Speed: " + e.currentTarget.value;
+			//Label(p.getChildByName('maai')).text = "Flee Speed: " + e.currentTarget.value;
 		}
 		private function onMAIChange(e:Event):void
 		{
 			parentClass.attraction = e.currentTarget.value;
-			Label(p.getChildByName('mai')).text = "Return delay: " + e.currentTarget.value;
+			//Label(p.getChildByName('mai')).text = "Return delay: " + e.currentTarget.value;
 		}
 		
 		private function onNext(e:Event):void
@@ -239,16 +241,21 @@ package
 			{
 				_ms_prev = _timer;
 				
-				Label(p.getChildByName('fps_txt')).text = 'FPS: ' + _fps + ' / ' + stage.frameRate;
+				fpsLabel.text = 'FPS: ' + _fps + ' / ' + stage.frameRate;
 				
 				_fps = 0;
 			}
 			
 			_fps ++;
-			Label(p.getChildByName('ms_txt')).text = 'MS/Frame: ' + (_timer - _ms);
+			msLabel.text = 'MS/Frame: ' + (_timer - _ms);
+			//Label(p.getChildByName('ms_txt')).text = 'MS/Frame: ' + (parentClass.getBlobsTimer);
 			_ms = _timer;
-			
-			Label(p.getChildByName('mtProcessingTime')).text = "MotionTracker (ms): "+parentClass._motionTracker.workingTime;
+			//mt_ms += parentClass._motionTracker.workingTime;
+			if(parentClass._motionTracker.active)
+				//Label(p.getChildByName('mtProcessingTime')).text = "MotionTracker (ms): "+mt_ms;
+				msmtLabel.text = "MotionTracker (ms): "+parentClass._motionTracker.workingTime;
+				
+			//trace(mt_ms);
 		}
 	}
 	

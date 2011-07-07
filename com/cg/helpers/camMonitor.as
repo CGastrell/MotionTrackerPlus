@@ -17,6 +17,9 @@
 		private var c:Camera;
 		
 		private var p:Panel;
+		private var activityLabel:Label;
+		private var currentFPSLabel:Label;
+		private var bandwidthLabel:Label;
 		
 		public function camMonitor(cam = null) 
 		{
@@ -51,15 +54,15 @@
 			var l:Label = new Label(p,30,line * 0.25,'Camera (this box is draggable)');
 			
 			l = new Label(p,10,line * currentLine,'activityLevel:');
-			l = new Label(p,100,line * currentLine,String(c.activityLevel));l.name = 'activityLevel';
+			activityLabel = new Label(p,100,line * currentLine,String(c.activityLevel));l.name = 'activityLevel';
 			
 			currentLine++;
 			l = new Label(p,10,line * currentLine,'bandwidth:');
-			l = new Label(p,100,line * currentLine,String(c.bandwidth));l.name = 'bandwidth';
+			bandwidthLabel = new Label(p,100,line * currentLine,String(c.bandwidth));l.name = 'bandwidth';
 			
 			currentLine++;
 			l = new Label(p,10,line * currentLine,'currentFPS:');
-			l = new Label(p,100,line * currentLine,String(c.currentFPS));l.name = 'currentFPS';
+			currentFPSLabel = new Label(p,100,line * currentLine,String(c.currentFPS));l.name = 'currentFPS';
 			
 			currentLine++;
 			l = new Label(p,10,line * currentLine,'fps:');
@@ -119,16 +122,10 @@
 		
 		private function updateOnFrame(e:Event = null):void
 		{
-			setValue('activityLevel',c.activityLevel);
-			setValue('bandwidth',c.bandwidth);
-			setValue('currentFPS',c.currentFPS);
+			activityLabel.text = String(c.activityLevel);
+			bandwidthLabel.text = String(c.bandwidth);
+			currentFPSLabel.text = String(c.currentFPS);
 		}
-		
-		private function setValue(propertyName:String,getValue:*)
-		{
-			Label(p.getChildByName(propertyName)).text = String(getValue);
-		}
-		
 		private function activityHandler(e:ActivityEvent)
 		{
 			//trace(e);

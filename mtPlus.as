@@ -1,4 +1,4 @@
-package
+﻿package
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -28,6 +28,7 @@ package
 	import com.cg.helpers.outputMonitor;
 	import com.cg.helpers.camMonitor;
 	import com.cg.helpers.sourceMonitor;
+
 
 	public class mtPlus extends MovieClip
 	{
@@ -123,7 +124,7 @@ package
 				cam.setQuality(16384,0);
 				cam.addEventListener(StatusEvent.STATUS,onCamera);
 				//i've been testing with this configs to no avail
-				cam.setKeyFrameInterval(15);
+				cam.setKeyFrameInterval(1000);
 				cam.setLoopback(false);
 				//get vid to attach camera, then send to MT
 				vid = new Video( camW, camH );
