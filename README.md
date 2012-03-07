@@ -1,5 +1,8 @@
 # Motion Tracker Plus Class #
 
+## Important:
+This repo is outdated and soon will be deprecated. I'll upload a new one with a much improved class.
+
 ## Brief
 
 Based on MotionTracker class by [Justin Windle](http://blog.soulwire.co.uk), extended to return multiple points.
@@ -22,8 +25,7 @@ about it.
 
 ## Features
 
-### Freeze background  
-Compare video feed against last taken frame or fixed one
+### Freeze background: Compare video feed against last taken frame or fixed one
 	motionTracker.freezeBackground = true/false;
 ### Return multiple points or unique movement tracker
 	motionTracker.returnBlobs = true/false;
